@@ -64,6 +64,8 @@ const server = createServer(
     },
 );
 
+await pool.query('create table if not exists pairs (key text, value text)');
+
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
